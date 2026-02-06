@@ -83,8 +83,9 @@ async fn main() -> anyhow::Result<()> {
         server_id: Set(test_server_ex.clone().id),
     }.insert(db).await.unwrap();*/
     let rw = "rw";
-    let test_role = role::Entity::find()
-        .left_join_linked(RoleToWhitelistedServer)
+    let test_role = role::Entity::load()
+        .with(RoleToWhitelistedServer)
+        // .left_join_linked(RoleToWhitelistedServer)
         // .join_as(JoinType::LeftJoin, role_whitelisted_server::Relation::Role.def().rev(), rw)
         // .join(JoinType::LeftJoin, role_whitelisted_server::Relation::Server.def().from_alias(rw))
         // .find_with_linked(RoleToWhitelistedServer)
