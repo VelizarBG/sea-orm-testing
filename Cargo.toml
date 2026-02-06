@@ -1,0 +1,17 @@
+[package]
+name = "sea-orm-testing"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.49.0", features = ["macros", "rt-multi-thread", "rt"] }
+log = "0.4.29"
+tracing-subscriber = "0.3.22"
+tracing = "0.1.44"
+anyhow = { version = "1.0.101", features = ["backtrace"] }
+
+[dependencies.sea-orm]
+#version = "2.0.0-rc.30"
+git = "file://C:/Users/Admin/Repos/Rust/sea-orm"
+rev = "452e53667d3778274de736d776e2c90b81b60ae6"
+features = ["sqlx-sqlite", "runtime-tokio", "entity-registry", "schema-sync", "macros", "debug-print"]
